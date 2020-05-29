@@ -12,7 +12,8 @@ $(document).ready(function(){
       
     });
     
-  });  
+  });
+  
 
   $('.btn').on('click', function () {
 
@@ -24,16 +25,20 @@ $(document).ready(function(){
     $('body').css('overflow', 'hidden');
 
   });
+  
 
   $('.popup-block__btn').on('click', function () { 
     $('.popup-page').fadeOut();
     $('body').css('overflow', 'auto');
   });
 
-  $('.popup-page').on('click', function (e) {
-    if (e.target == this) $('.popup-page').fadeOut();
-    $('body').css('overflow', 'auto');
-});
+
+  $('.popup-page').on('click', function (e) {    
+    if (e.target == this) 
+      e.preventDefault(),
+      $('.popup-page').fadeOut(),
+      $('body').css('overflow', 'auto');    
+  });
 
 
   $("a[href^='#']").on('click', function(){
